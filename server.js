@@ -26,6 +26,10 @@ const __dirname = path.dirname(__filename);
 // Serve static React files
 app.use(express.static(path.join(__dirname, "../client/build")));
 
+app.get("/", (req, res) => {
+  res.status(200).send("✅ Backend serverFolio is running!");
+});
+
 app.listen(PORT, () => {
 	connectDB();
 	console.log(`Server started at http://${HOST}:${PORT}`);
